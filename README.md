@@ -1,35 +1,37 @@
 # AI Agentic — Master BDCC
 
-Depot unique regroupant tous les Labs et TPs du module **SMA et IAD — Master BDCC | Prof. RETAL SARA**.
+Ce dépôt regroupe l'ensemble des travaux pratiques (Labs et TP) réalisés dans le cadre du module **SMA et IAD** du **Master BDCC**, encadré par **Prof. RETAL SARA**.
 
-## Structure
+## Organisation du projet
 
-| Dossier | Sujet |
-|---|---|
-| [Lab1-prompt-engineering](./Lab1-prompt-engineering) | Ingenierie des prompts (tokenisation, Ollama, Groq, OpenAI, JSON, images) |
-| [Lab2-langchain-agents](./Lab2-langchain-agents) | Agents avec LangChain (agent chef personnel, memoire, web search) |
-| [Lab3-RAG](./Lab3-RAG) | RAG sur PDF (HuggingFace embeddings) + agent SQL (Chinook DB) |
-| [Lab4-MCP](./Lab4-MCP) | Model Context Protocol : stdio, serveur de temps, HTTP streaming |
-| [Lab5-LangGraph_Studio](./Lab5-LangGraph_Studio) | LangGraph Studio (visualisation/debug d'agents) + systeme Multi-Agents hierarchique |
-| [Lab6-Contexte_et_Etat](./Lab6-Contexte_et_Etat) | Contexte par invocation (`ReaderProfile`) et etat persiste (`LibraryState`) |
-| [Lab7-Human_In_The_Loop](./Lab7-Human_In_The_Loop) | Agent HITL : interrupt(), approve / reject / edit |
-| [Lab8-Workflow_avec_LangGraph](./Lab8-Workflow_avec_LangGraph) | Workflows LangGraph : graphe simple, reducers, etat message, branchements conditionnels, boucles |
-| [Lab9-Agent_avec_LangGraph](./Lab9-Agent_avec_LangGraph) | Agent LangGraph : tools, agent comme noeud, HITL fonctionnel (`@entrypoint`/`@task`), historique et fork |
-| [TP-Chef_personnel](./TP-Chef_personnel) | Agent chef cuisinier : RAG + memoire + recherche web + system prompt |
+| Dossier | Description |
+|----------|-------------|
+| [Lab1-prompt-engineering](./Lab1-prompt-engineering) | Découverte du prompt engineering : tokenisation, Ollama, Groq, OpenAI, génération JSON et images. |
+| [Lab2-langchain-agents](./Lab2-langchain-agents) | Développement d'agents avec LangChain : mémoire, recherche web et assistant cuisinier. |
+| [Lab3-RAG](./Lab3-RAG) | Mise en œuvre d'un système RAG sur des fichiers PDF avec HuggingFace Embeddings, ainsi qu'un agent SQL basé sur la base Chinook. |
+| [Lab4-MCP](./Lab4-MCP) | Découverte du Model Context Protocol (MCP) : communication stdio, serveur de temps et streaming HTTP. |
+| [Lab5-LangGraph_Studio](./Lab5-LangGraph_Studio) | Utilisation de LangGraph Studio pour visualiser et déboguer des agents, ainsi que la conception d'un système multi-agents hiérarchique. |
+| [Lab6-Contexte_et_Etat](./Lab6-Contexte_et_Etat) | Gestion du contexte d'exécution (`ReaderProfile`) et de l'état persistant (`LibraryState`). |
+| [Lab7-Human_In_The_Loop](./Lab7-Human_In_The_Loop) | Réalisation d'un agent avec validation humaine grâce à `interrupt()`, `approve`, `reject` et `edit`. |
+| [Lab8-Workflow_avec_LangGraph](./Lab8-Workflow_avec_LangGraph) | Construction de workflows LangGraph : états, reducers, branchements conditionnels et boucles. |
+| [Lab9-Agent_avec_LangGraph](./Lab9-Agent_avec_LangGraph) | Création d'un agent complet avec LangGraph : outils, historique, Human-In-The-Loop et mécanisme de fork. |
+| [TP-Chef_personnel](./TP-Chef_personnel) | Projet final : agent chef cuisinier intégrant un system prompt, la mémoire, le RAG et la recherche web. |
 
-## Prerequis communs
+## Prérequis
 
-- Python >= 3.10
-- [uv](https://docs.astral.sh/uv/) — gestionnaire de paquets
-- [Ollama](https://ollama.com/) avec le modele `llama3.2:3b`
+Avant d'exécuter les différents labs, assurez-vous d'avoir installé :
+
+- Python 3.10 ou une version supérieure
+- **uv** pour la gestion des dépendances
+- **Ollama** avec le modèle `llama3.2:3b`
 
 ```bash
 ollama pull llama3.2:3b
 ```
 
-## Execution
+## Exécution d'un Lab
 
-Chaque lab est autonome avec son propre environnement virtuel :
+Chaque dossier est indépendant et possède son propre environnement.
 
 ```bash
 cd Lab6-Contexte_et_Etat
@@ -38,7 +40,10 @@ uv run --active python agent_context.py
 uv run --active python agent_state.py
 ```
 
-## Remarques
+Le même principe s'applique aux autres Labs : il suffit d'entrer dans le dossier correspondant, d'installer les dépendances puis d'exécuter le programme souhaité.
 
-- Les fichiers `.env` ne doivent pas etre pushes sur GitHub (voir `.env.example` dans chaque lab).
-- Certains labs demandent des cles API optionnelles (`TAVILY_API_KEY`, `LANGSMITH_API_KEY`).
+## Informations complémentaires
+
+- Les fichiers `.env` ne doivent pas être versionnés sur GitHub. Utiliser les fichiers `.env.example` fournis dans les différents dossiers.
+- Certains exercices nécessitent des clés API facultatives, notamment `TAVILY_API_KEY` et `LANGSMITH_API_KEY`.
+- Les Labs peuvent être exécutés indépendamment les uns des autres, ce qui facilite leur test et leur compréhension.
