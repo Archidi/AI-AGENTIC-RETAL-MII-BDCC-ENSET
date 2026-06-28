@@ -1,0 +1,9 @@
+.env
+__pycache__/
+*.py[cod]
+.venv/
+uv.lock
+.pytest_cache/
+data/chroma_db/
+data/pdfs/
+evaluation/results/
